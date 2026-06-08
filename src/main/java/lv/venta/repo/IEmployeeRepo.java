@@ -1,5 +1,9 @@
 package lv.venta.repo;
 
-public interface IEmployeeRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.venta.model.Employee;
+
+public interface IEmployeeRepo extends CrudRepository<Employee, Long>{
 
 }

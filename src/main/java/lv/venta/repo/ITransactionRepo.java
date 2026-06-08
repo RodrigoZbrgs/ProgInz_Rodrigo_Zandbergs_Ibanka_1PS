@@ -1,5 +1,9 @@
 package lv.venta.repo;
 
-public interface ITransactionRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.venta.model.Transaction;
+
+public interface ITransactionRepo extends CrudRepository<Transaction, Long> {
 
 }
