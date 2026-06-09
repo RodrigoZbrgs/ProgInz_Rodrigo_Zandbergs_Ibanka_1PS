@@ -30,11 +30,11 @@ import lombok.ToString;
 @ToString
 public class BankAccount {
 	
-	@Column(name = "Idb")
+	@Column(name = "Bid")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private long idb;
+	private long bid;
 	
 	@Column(name = "active")
 	@NotNull
@@ -53,8 +53,14 @@ public class BankAccount {
 	@OneToMany(mappedBy = "bank")
     private Collection<Card> cards = new ArrayList<Card>();
 	
+	@OneToMany(mappedBy = "senderAccount")
+	private Collection<Transaction> sentTransactions = new ArrayList<Transaction>();
+
+	@OneToMany(mappedBy = "receiverAccount")
+	private Collection<Transaction> receivedTransactions = new ArrayList<Transaction>();
+	
 	@ManyToOne
-    @JoinColumn(name = "Idcl")
+    @JoinColumn(name = "Cid")
     private Client client;
 	
 	public BankAccount(boolean activity, int balance, String iban) {

@@ -27,11 +27,11 @@ import lombok.ToString;
 @ToString
 public class Card {
 
-	@Column(name = "Idca")
+	@Column(name = "Caid")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private long idca;
+	private long caid;
 	
 	@Column(name = "cvv")
 	@NotEmpty
@@ -48,7 +48,7 @@ public class Card {
 	private String cardNumber;
 	
 	@ManyToOne
-    @JoinColumn(name = "bid")
+    @JoinColumn(name = "Bid")
     private BankAccount bank;
 	
 	public Card(String cvv, LocalDate expiryDate, String cardNumber) {

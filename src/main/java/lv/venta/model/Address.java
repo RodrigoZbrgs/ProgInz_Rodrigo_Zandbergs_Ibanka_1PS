@@ -5,6 +5,8 @@ import java.util.Collection;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,15 +30,15 @@ import lv.venta.model.enums.City;
 @ToString
 public class Address {
 	
-	@Column(name = "Ida")
+	@Column(name = "Aid")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private long ida;
+	private long aid;
 	
 	@Column(name = "house_number")
 	@NotNull
-	@Min(0)
+	@Min(1)
 	private int houseNumber;
 	
 	@Column(name = "street_title")
@@ -44,7 +46,8 @@ public class Address {
 	private String streetTitle;
 	
 	@Column(name = "city")
-	@NotEmpty
+	@NotNull
+	@Enumerated(EnumType.STRING)
 	private City city;
 	
 	@ManyToMany(mappedBy = "addresses")

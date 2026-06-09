@@ -2,6 +2,8 @@ package lv.venta.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,11 +32,11 @@ public class Employee {
 	@Min(0)
 	private int approvalLimit;
 	
-	@Column(name = "Ide")
+	@Column(name = "Eid")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private long ide;
+	private long eid;
 	
 	@Column(name = "name")
 	@NotEmpty
@@ -52,11 +54,12 @@ public class Employee {
 	private String surname;
 	
 	@Column(name = "status")
-	@NotEmpty
+	@Enumerated(EnumType.STRING)
 	@NotNull
 	private EmployeeStatus status;
 	
-	public Employee(String name, String personCode, String surname, EmployeeStatus status) {
+	public Employee(int approvalLimit,String name, String personCode, String surname, EmployeeStatus status) {
+		setApprovalLimit(approvalLimit);
 		setName(name);
 		setPersonCode(personCode);
 		setSurname(surname);

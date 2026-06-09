@@ -29,20 +29,20 @@ import lombok.ToString;
 @ToString
 public class Client {
 
-	@Column(name = "Idcl")
+	@Column(name = "Cid")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
-	private long idcl;
+	private long cid;
 	
-	@Column(name = "client_code")
+	@Column(name = "client_code", unique = true)
 	@NotEmpty
 	@Pattern(regexp = "[A-Ž]{1}[_]{1}[A-Ž]{1}[_]{1}[0-9]{6}[-]{1}[0-9]{5}")
 	private String clientCode;
 	
 	@Column(name = "email")
 	@NotEmpty
-	@Pattern(regexp = "^(?=.{1,64}@)")
+	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
 	private String email;
 	
 	@Column(name = "name")
@@ -62,8 +62,8 @@ public class Client {
 	
 	@ManyToMany
 	@JoinTable(name = "client_address_table",
-	joinColumns = @JoinColumn(name = "Idcl"),
-	inverseJoinColumns = @JoinColumn(name = "Ida"))
+	joinColumns = @JoinColumn(name = "Cid"),
+	inverseJoinColumns = @JoinColumn(name = "Aid"))
 	private Collection<Address> addresses = new ArrayList<Address>();
 	
 	@OneToMany(mappedBy = "client")

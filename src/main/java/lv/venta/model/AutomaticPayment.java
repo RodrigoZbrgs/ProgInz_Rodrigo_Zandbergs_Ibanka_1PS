@@ -1,16 +1,17 @@
 package lv.venta.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.AccessLevel;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,40 +22,32 @@ import lv.venta.model.enums.AutomaticPaymentScheduleType;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AutomaticPayment {
+public class AutomaticPayment extends Transaction {
 
 	@Column(name = "schedule_type")
-	@NotEmpty
+	@Enumerated(EnumType.STRING)
 	@NotNull
 	private AutomaticPaymentScheduleType apScheduleType;
 	
-	@Column(name = "amount")
+	@Column(name = "active")
 	@NotNull
-	private int paymentAmount;
+	private Boolean activity;
 	
 	@Column(name = "next_payment_date")
 	@NotNull
 	private LocalDate nextPaymentDate;
 	
-	@Column(name = "Idap")
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Setter(value = AccessLevel.NONE)
-	private long idap;
-	
-	@Column(name = "description")
-	@NotEmpty
-	private String description;
-	
 	@Column(name = "title")
 	@NotEmpty
 	private String paymentTitle;
 	
-	public AutomaticPayment(AutomaticPaymentScheduleType apScheduleType, int paymentAmount, LocalDate nextPaymentDate,
-			String description, String paymentTitle) {
+	public AutomaticPayment(Boolean activity, AutomaticPaymentScheduleType apScheduleType, BigDecimal amount,LocalDate nextPaymentDate,
+			LocalDateTime dateTime, String description, String paymentTitle) {
+		setActivity(activity);
 		setApScheduleType(apScheduleType);
-		setPaymentAmount(paymentAmount);
+		setAmount(amount);
 		setNextPaymentDate(nextPaymentDate);
+		setDateTime(dateTime);
 		setDescription(description);
 		setPaymentTitle(paymentTitle);
 	}
