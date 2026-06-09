@@ -6,4 +6,6 @@ import lv.venta.model.Employee;
 
 public interface IEmployeeRepo extends CrudRepository<Employee, Long>{
 
+	boolean existsByPersonCode(String personCode);
+
 }
