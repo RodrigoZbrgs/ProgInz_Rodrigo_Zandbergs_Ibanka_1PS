@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+	
+<body>
+	
+	<h1>Darbinieku dati:</h1>
+	<h2 th:text="${info}"></h2>
+	<table border="1px">
+		<tr>
+			<td>Approval_Limit</td>
+			<td>Eid</td>
+			<td>Name</td>
+			<td>Person_Code</td>
+			<td>Surname</td>
+			<td>Status</td>
+		</tr>
+		<th:block th:each="employee : ${package}">
+		<tr>
+			<td th:text="${employee.approvalLimit}" ></td>
+			<td th:text="${employee.eid}" ></td>
+			<td th:text="${employee.name}" ></td>
+			<td th:text="${employee.personCode}" ></td>
+			<td th:text="${employee.surname}" ></td>
+			<td th:text="${employee.status}" ></td>
+		</tr>
+		</th:block>
+	</table>
+	
+
+	
+</body>
+
+
+
+</html>

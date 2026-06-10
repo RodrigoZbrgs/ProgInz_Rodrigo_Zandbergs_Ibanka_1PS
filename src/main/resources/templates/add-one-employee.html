@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<h1>Lūdzu ievadi jaunu darbinieku:</h1>
+	<form method="post" th:object="${employee}" th:action="@{/employee/crud/add}">
+
+		<p>Ievadi apstiprinājuma limitu</p>
+		<input type="number" th:field="*{approvalLimit}" />
+		<p th:if="${#fields.hasErrors('approvalLimit')}" th:errors="*{approvalLimit}"></p>
+
+		<p>Ievadi vārdu</p>
+		<input type="text" th:field="*{name}" />
+		<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+
+		<p>Ievadi personas kodu</p>
+		<input type="text" th:field="*{personCode}" />
+		<p th:if="${#fields.hasErrors('personCode')}" th:errors="*{personCode}"></p>
+
+		<p>Ievadi uzvārdu</p>
+		<input type="text" th:field="*{surname}" />
+		<p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>
+
+		<p>Ievadi statusu</p>
+		<input type="text" th:field="*{status}" />
+		<p th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></p>
+
+		<button type="submit">Saglabāt darbinieku</button>
+	</form>
+
+</body>
+
+</html>

@@ -63,11 +63,11 @@ public class EmployeeCrudServiceImpl implements IEmployeeCrudService {
 	@Override	
 	public Employee insertNewEmployee(Employee newEmployee) throws Exception {
 		if(newEmployee == null) {
-			throw new Exception("Produkta dati nav piejami, jo nav reference");
+			throw new Exception("Darbinieka dati nav pieejami, jo nav reference");
 		}
 		
 		if (employeeRepo.existsByPersonCode(newEmployee.getPersonCode())) {
-		    throw new Exception("Produkts ar tādu nosaukumu jau eksistē");
+		    throw new Exception("Darbinieks ar tādu persona kodu jau eksistē");
 		}
 		
 		if(newEmployee.getName() == null || newEmployee.getSurname() == null
