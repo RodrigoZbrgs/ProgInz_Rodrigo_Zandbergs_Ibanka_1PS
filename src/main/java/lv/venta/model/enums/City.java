@@ -1,5 +1,5 @@
 package lv.venta.model.enums;
 
 public enum City {
-	Ventspils, Rīga, Rēzekne, Tukums, Talsi, Saldus, Liepāja, Jelgava
+	Ventspils, Riga, Rezekne, Tukums, Talsi, Saldus, Liepaja, Jelgava
 }

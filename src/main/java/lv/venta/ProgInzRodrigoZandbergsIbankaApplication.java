@@ -49,7 +49,7 @@ public class ProgInzRodrigoZandbergsIbankaApplication {
 				if (adrRepo.count() == 0) {
 					// Address
 					Address a1 = new Address(12, "Lielais prospekts", City.Ventspils);
-					Address a2 = new Address(101, "Inženieru iela", City.Rēzekne);
+					Address a2 = new Address(101, "Inzenieru iela", City.Tukums);
 					adrRepo.saveAll(Arrays.asList(a1, a2));
 
 					// Clients
@@ -66,8 +66,8 @@ public class ProgInzRodrigoZandbergsIbankaApplication {
 					clientRepo.saveAll(Arrays.asList(cl1, cl2, cl3));
 
 					// Employees
-					Employee e1 = new Employee(1000, "Jānis", "121212-12345", "Bērziņš", EmployeeStatus.active);
-					Employee e2 = new Employee(10000, "Līga", "121213-12344", "Jaukā", EmployeeStatus.on_leave);
+					Employee e1 = new Employee(1000, "Janis", "121212-12345", "Berzins", EmployeeStatus.active);
+					Employee e2 = new Employee(10000, "Liga", "121213-12344", "Jauka", EmployeeStatus.on_leave);
 					employeeRepo.saveAll(Arrays.asList(e1, e2));
 
 					// Bank accounts
@@ -96,9 +96,9 @@ public class ProgInzRodrigoZandbergsIbankaApplication {
 
 					// Transaction
 					Transaction t1 = new Transaction(BigDecimal.valueOf(5),
-							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 057442), "Par pusdienām");
+							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 057442), "Par pusdienam");
 					Transaction t2 = new Transaction(BigDecimal.valueOf(8.99),
-							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 057442), "Par kurpēm");
+							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 057442), "Par kurpem");
 					Transaction t3 = new Transaction(BigDecimal.valueOf(9.99),
 							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 057442), "Par cienastu");
 					
@@ -116,10 +116,10 @@ public class ProgInzRodrigoZandbergsIbankaApplication {
 					// Automatic payment
 					AutomaticPayment ap1 = new AutomaticPayment(true, AutomaticPaymentScheduleType.Monthly,
 							BigDecimal.valueOf(15), LocalDate.of(2026, 5, 1),
-							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 128015), "Par elektrību", "Elektrības maksājums");
+							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 128015), "Par elektribu", "Elektribas maksajums");
 					AutomaticPayment ap2 = new AutomaticPayment(true, AutomaticPaymentScheduleType.Monthly,
 							BigDecimal.valueOf(99), LocalDate.of(2026, 5, 7),
-							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 128015), "Par kredītu", "Kredīta maksājums");
+							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 128015), "Par kreditu", "Kredita maksajums");
 					
 					ap1.setSenderAccount(b4);
 					ap1.setReceiverAccount(b1);
@@ -131,9 +131,9 @@ public class ProgInzRodrigoZandbergsIbankaApplication {
 
 					// Large transactions
 					LargeTransaction lt1 = new LargeTransaction(BigDecimal.valueOf(2000), true,
-							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 153104), "Par jauno mašīnu");
+							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 153104), "Par jauno masinu");
 					LargeTransaction lt2 = new LargeTransaction(BigDecimal.valueOf(9000), true,
-							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 153104), "Par jauno dzīvokli");
+							LocalDateTime.of(2026, 4, 27, 18, 32, 48, 153104), "Par jauno dzivokli");
 					
 					lt1.setSenderAccount(b3);
 					lt1.setReceiverAccount(b4);
