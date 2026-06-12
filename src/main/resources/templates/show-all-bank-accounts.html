@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+	
+<body>
+	
+	<h1>Bank account data:</h1>
+	<h2 th:text="${info}"></h2>
+	<table border="1px">
+		<tr>
+			<td>Active</td>
+			<td>Balance</td>
+			<td>Bid</td>
+			<td>Cid</td>
+			<td>Iban</td>
+		</tr>
+		<th:block th:each="bankaccount : ${package}">
+		<tr>
+			<td th:text="${bankaccount.activity}"></td>
+			<td th:text="${bankaccount.balance}"></td>
+			<td th:text="${bankaccount.bid}"></td>
+			<td th:text="${bankaccount.client.cid}"></td>
+			<td th:text="${bankaccount.iban}"></td>
+		</tr>
+		</th:block>
+	</table>
+	
+
+	
+</body>
+
+
+
+</html>

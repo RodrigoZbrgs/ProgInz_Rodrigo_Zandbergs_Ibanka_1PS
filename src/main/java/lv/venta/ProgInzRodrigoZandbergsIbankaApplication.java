@@ -49,7 +49,7 @@ public class ProgInzRodrigoZandbergsIbankaApplication {
 				if (adrRepo.count() == 0) {
 					// Address
 					Address a1 = new Address(12, "Lielais prospekts", City.Ventspils);
-					Address a2 = new Address(101, "Inženieru iela", City.Ventspils);
+					Address a2 = new Address(101, "Inženieru iela", City.Rēzekne);
 					adrRepo.saveAll(Arrays.asList(a1, a2));
 
 					// Clients
@@ -60,9 +60,9 @@ public class ProgInzRodrigoZandbergsIbankaApplication {
 					Client cl3 = new Client("P_J_090289-98865", "juris.priede@gmail.com", "Juris", "090289-98865",
 							"Priede");
 
-					cl1.getAddresses().add(a1);
-					cl2.getAddresses().add(a2);
-					cl3.getAddresses().add(a2);
+					cl1.setAddress(a1);
+					cl2.setAddress(a2);
+					cl3.setAddress(a2);
 					clientRepo.saveAll(Arrays.asList(cl1, cl2, cl3));
 
 					// Employees

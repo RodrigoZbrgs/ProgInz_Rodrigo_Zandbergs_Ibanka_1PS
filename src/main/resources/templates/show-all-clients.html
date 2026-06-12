@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+	
+<body>
+	
+	<h1>Client data:</h1>
+	<h2 th:text="${info}"></h2>
+	<table border="1px">
+		<tr>
+			<td>Address</td>
+			<td>Cid</td>
+			<td>Client_Code</td>
+			<td>Email</td>
+			<td>Name</td>
+			<td>Person_Code</td>
+			<td>Surname</td>
+		</tr>
+		<th:block th:each="client : ${package}">
+		<tr>
+			<td th:text="${client.address.aid}"></td>
+			<td th:text="${client.cid}"></td>
+			<td th:text="${client.clientCode}"></td>
+			<td th:text="${client.email}"></td>
+			<td th:text="${client.name}"></td>
+			<td th:text="${client.personCode}"></td>
+			<td th:text="${client.surname}"></td>
+		</tr>
+		</th:block>
+	</table>
+	
+
+	
+</body>
+
+
+
+</html>

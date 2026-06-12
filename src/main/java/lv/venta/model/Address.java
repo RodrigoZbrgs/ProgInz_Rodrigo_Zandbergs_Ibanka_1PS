@@ -10,7 +10,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
@@ -50,8 +50,8 @@ public class Address {
 	@Enumerated(EnumType.STRING)
 	private City city;
 	
-	@ManyToMany(mappedBy = "addresses")
-    private Collection<Client> clients = new ArrayList<Client>();
+	@OneToMany(mappedBy = "address")
+	private Collection<Client> clients = new ArrayList<>();
 	
 	public Address(int houseNumber, String streetTitle, City city) {
 		setHouseNumber(houseNumber);

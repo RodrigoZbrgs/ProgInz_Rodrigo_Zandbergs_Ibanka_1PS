@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h1>Input new transaction:</h1>
+    <form method="post" th:object="${transaction}" th:action="@{/bank/crud/transactions/add}">
+
+        <p>Input amount</p>
+        <input type="number" step="0.01" th:field="*{amount}" />
+        <p th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></p>
+
+        <p>Input date and time</p>
+        <input type="datetime-local" th:field="*{dateTime}" />
+        <p th:if="${#fields.hasErrors('dateTime')}" th:errors="*{dateTime}"></p>
+
+        <p>Input description</p>
+        <input type="text" th:field="*{description}" />
+        <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+
+        <p>Input sender account ID</p>
+        <input type="number" th:field="*{senderAccount.bid}" />
+
+        <p>Input receiver account ID</p>
+        <input type="number" th:field="*{receiverAccount.bid}" />
+
+        <button type="submit">Save transaction</button>
+    </form>
+</body>
+</html>
+
+</html>

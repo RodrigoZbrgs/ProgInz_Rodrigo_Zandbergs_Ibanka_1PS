@@ -9,8 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
@@ -60,11 +59,9 @@ public class Client {
 	@Pattern(regexp = "[A-Ž]{1}[a-ž]{2,20}([ ][A-Ž]{1}[a-ž]{2,20})?")
 	private String surname;
 	
-	@ManyToMany
-	@JoinTable(name = "client_address_table",
-	joinColumns = @JoinColumn(name = "Cid"),
-	inverseJoinColumns = @JoinColumn(name = "Aid"))
-	private Collection<Address> addresses = new ArrayList<Address>();
+	@ManyToOne
+	@JoinColumn(name = "aid")
+	private Address address;
 	
 	@OneToMany(mappedBy = "client")
 	private Collection<BankAccount> bankAccounts = new ArrayList<BankAccount>();

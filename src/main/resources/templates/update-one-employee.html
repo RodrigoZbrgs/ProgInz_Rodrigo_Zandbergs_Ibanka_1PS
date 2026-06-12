@@ -1,24 +1,24 @@
 <html xmlns:th="http://www.thymeleaf.org" >
 <body>
-<h1>Lūdzu rediģē darbinieku:</h1>
+<h1>Edit employeee:</h1>
     <form method="post" th:object="${employee}" th:action="@{/employee/crud/update/__${id}__}">
 
-        <p>Ievadi apstiprinājuma limitu</p>
+        <p>Input approval limit</p>
         <input type="number" th:field="*{approvalLimit}"/>
 
-        <p>Ievadi vārdu</p>
+        <p>Input name</p>
         <input type="text" th:field="*{name}"/>
 
-        <p>Ievadi personas kodu</p>
+        <p>Input person code</p>
         <input type="text" th:field="*{personCode}"/>
 
-        <p>Ievadi uzvārdu</p>
+        <p>Input surname</p>
         <input type="text" th:field="*{surname}"/>
 
-        <p>Ievadi statusu</p>
+        <p>Input status</p>
         <input type="text" th:field="*{status}"/>
 
-        <button type="submit">Saglabāt darbinieku</button>
+        <button type="submit">Save employee</button>
     </form>
 </body>
 </html>

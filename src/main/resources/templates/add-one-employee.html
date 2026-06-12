@@ -1,30 +1,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <body>
-	<h1>Lūdzu ievadi jaunu darbinieku:</h1>
+	<h1>Input new employee:</h1>
 	<form method="post" th:object="${employee}" th:action="@{/employee/crud/add}">
 
-		<p>Ievadi apstiprinājuma limitu</p>
+		<p>Input approval limit</p>
 		<input type="number" th:field="*{approvalLimit}" />
 		<p th:if="${#fields.hasErrors('approvalLimit')}" th:errors="*{approvalLimit}"></p>
 
-		<p>Ievadi vārdu</p>
+		<p>Input name</p>
 		<input type="text" th:field="*{name}" />
 		<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
 
-		<p>Ievadi personas kodu</p>
+		<p>Input person code</p>
 		<input type="text" th:field="*{personCode}" />
 		<p th:if="${#fields.hasErrors('personCode')}" th:errors="*{personCode}"></p>
 
-		<p>Ievadi uzvārdu</p>
+		<p>Input surname</p>
 		<input type="text" th:field="*{surname}" />
 		<p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>
 
-		<p>Ievadi statusu</p>
+		<p>Input status</p>
 		<input type="text" th:field="*{status}" />
 		<p th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></p>
 
-		<button type="submit">Saglabāt darbinieku</button>
+		<button type="submit">Save employee</button>
 	</form>
 
 </body>

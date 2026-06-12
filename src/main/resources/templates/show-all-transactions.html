@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h1>Transaction data:</h1>
+    <h2 th:text="${info}"></h2>
+    <table border="1px">
+        <tr>
+            <td>Tid</td>
+            <td>Amount</td>
+            <td>Date_Time</td>
+            <td>Description</td>
+            <td>Said</td>
+            <td>Taid</td>
+        </tr>
+        <th:block th:each="transaction : ${package}">
+        <tr>
+            <td th:text="${transaction.tid}"></td>
+            <td th:text="${transaction.amount}"></td>
+            <td th:text="${transaction.dateTime}"></td>
+            <td th:text="${transaction.description}"></td>
+            <td th:text="${transaction.senderAccount.bid}"></td>
+            <td th:text="${transaction.receiverAccount.bid}"></td>
+        </tr>
+        </th:block>
+    </table>
+</body>
+</html>
+
+
+
+
+</html>
